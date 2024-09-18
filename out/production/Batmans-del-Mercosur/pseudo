@@ -1,0 +1,52 @@
+// Clase Batman que contiene la información de cada Batman
+class Batman {
+    String dni;
+    String idioma;
+    int facturasConsumidas;
+
+    // Constructor de la clase
+    Batman(String dni, String idioma, int facturasConsumidas) {
+        this.dni = dni;
+        this.idioma = idioma;
+        this.facturasConsumidas = facturasConsumidas;
+    }
+}
+
+// Función que determina si un Batman es un posible infiltrado
+boolean esKryngo(Batman batman) {
+    // Un Batman es un infiltrado si su DNI indica que nació en Krypton y sólo habla inglés
+    return batman.dni.contains("Krypton") && batman.idioma.equals("Inglés");
+}
+
+// Función que determina si se necesita un traductor
+boolean seNecesitaUnTraductor(List<Batman> listaDeBatmans) {
+    // Recorrer la lista de Batmans
+    for (Batman batman : listaDeBatmans) {
+        // Si al menos uno solo habla inglés, se necesita un traductor
+        if (batman.idioma.equals("Inglés")) {
+            return true;
+        }
+    }
+    // No se encontró ningún Batman que sólo hable inglés
+    return false;
+}
+
+// Función para cuando un Batman va a la panadería y consume media docena de facturas
+void irALaPanaderia(Batman batman) {
+    // Aumentar la cantidad de facturas consumidas por 6
+    batman.facturasConsumidas += 6;
+}
+
+// Función que determina los Batman con altos niveles de facturas consumidas
+List<Batman> altosNivelesDeFacturaEnSangre(List<Batman> listaDeBatmans) {
+    List<Batman> batmansConAltosNiveles = new ArrayList<>();
+
+    // Recorrer la lista de Batmans
+    for (Batman batman : listaDeBatmans) {
+        // Si el Batman ha consumido más de 1500 facturas, añadir a la lista
+        if (batman.facturasConsumidas > 1500) {
+            batmansConAltosNiveles.add(batman);
+        }
+    }
+    return batmansConAltosNiveles;
+}
