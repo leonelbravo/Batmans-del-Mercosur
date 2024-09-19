@@ -13,11 +13,7 @@ public class Batman {
     }
 
     public boolean esKryngo() {
-        if (this.dni.equals("Krypton") && this.idioma.equals("Ingles")) {
-            System.out.println("Es un infiltrado");
-            return true;
-        }
-        return false;
+        return this.dni.equals("Krypton") && this.idioma.equals("Ingles");
     }
 
     public boolean seNecesitaUnTraductor(List<Batman> listaDeBatmans) {
